@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Mark Calculator</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: linear-gradient(to right, #36d1dc, #5b86e5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    input {
+        width: 90%;
+        padding: 8px;
+        margin: 5px 0;
+    }
+
+    button {
+        padding: 10px;
+        width: 100%;
+        background: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .result {
+        margin-top: 15px;
+        font-weight: bold;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Mark Calculator 📊</h2>
+
+    <input type="number" id="m1" placeholder="Subject 1">
+    <input type="number" id="m2" placeholder="Subject 2">
+    <input type="number" id="m3" placeholder="Subject 3">
+    <input type="number" id="m4" placeholder="Subject 4">
+    <input type="number" id="m5" placeholder="Subject 5">
+
+    <button onclick="calculate()">Calculate</button>
+
+    <div class="result" id="output"></div>
+</div>
+
+<script>
+function calculate() {
+    let m1 = Number(document.getElementById("m1").value) || 0;
+    let m2 = Number(document.getElementById("m2").value) || 0;
+    let m3 = Number(document.getElementById("m3").value) || 0;
+    let m4 = Number(document.getElementById("m4").value) || 0;
+    let m5 = Number(document.getElementById("m5").value) || 0;
+
+    let total = m1 + m2 + m3 + m4 + m5;
+    let avg = total / 5;
+
+    let grade = "";
+
+    if(avg >= 90) grade = "A+";
+    else if(avg >= 75) grade = "A";
+    else if(avg >= 60) grade = "B";
+    else if(avg >= 50) grade = "C";
+    else grade = "Fail";
+
+    document.getElementById("output").innerHTML =
+        "Total: " + total + "<br>Average: " + avg.toFixed(2) + "<br>Grade: " + grade;
+}
+</script>
+
+</body>
+</html>
